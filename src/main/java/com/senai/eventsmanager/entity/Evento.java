@@ -24,6 +24,7 @@ public class Evento {
     private LocalDateTime data_inicio;
     @Column(nullable = false)
     private LocalDateTime data_final;
+    private double valor;
     private String linkEvento;
     private String linkImagem;
     private LocalDateTime createdAt;
@@ -36,7 +37,7 @@ public class Evento {
     public Evento() {
     }
 
-    public Evento(UUID id, String nome, String descricao, EventoEnum tipo, String local, LocalDateTime data_inicio, LocalDateTime data_final, String linkEvento, String linkImagem, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Evento(UUID id, String nome, String descricao, EventoEnum tipo, String local, LocalDateTime data_inicio, LocalDateTime data_final, double valor, String linkEvento, String linkImagem, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -44,10 +45,19 @@ public class Evento {
         this.local = local;
         this.data_inicio = data_inicio;
         this.data_final = data_final;
+        this.valor = valor;
         this.linkEvento = linkEvento;
         this.linkImagem = linkImagem;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 
     public UUID getId() {
