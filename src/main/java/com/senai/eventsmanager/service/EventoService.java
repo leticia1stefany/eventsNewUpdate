@@ -19,12 +19,13 @@ public class EventoService {
 
     public EventoCreateDTO findById(UUID id) {
         //retorna um entidade Evento
-        Optional<Evento> evento = eventoRepository.findById(id);
+        Evento evento = eventoRepository.findById(id).orElseThrow();
         //método para converter um evento entity em eventoCreateDto
         EventoCreateDTO eventoCreateDTO = convertToDto(evento);
         return eventoCreateDTO;
     }
-    public EventoCreateDTO convertToDto(Evento evento){
+
+       public EventoCreateDTO convertToDto(Evento evento){
         EventoCreateDTO eventoCreateDTO = new EventoCreateDTO();
         //pegar os dados de evento e passar para o eventoCreateDto
         eventoCreateDTO.setNome(evento.getNome());
