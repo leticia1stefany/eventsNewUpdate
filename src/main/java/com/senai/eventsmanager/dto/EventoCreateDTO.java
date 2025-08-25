@@ -5,7 +5,7 @@ import com.senai.eventsmanager.entity.EventoEnum;
 import java.time.LocalDateTime;
 
 public class EventoCreateDTO {
-
+        // cade o id aqui?
     private String nome;
     private String descricao;
     private EventoEnum tipo;
