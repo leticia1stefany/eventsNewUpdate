@@ -6,6 +6,7 @@ import com.senai.eventsmanager.repository.InscricaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -23,6 +24,7 @@ public class InscricaoService {
     //método para salvar uma inscrição
     public InscricaoCreateDTO save(InscricaoCreateDTO inscricaoDto){
         Inscricao inscricao = convertToEntity(inscricaoDto);
+        inscricao.setDataHora(LocalDateTime.now());
         inscricao = repository.save(inscricao);
         return convertToDto(inscricao);
     }

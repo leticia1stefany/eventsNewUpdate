@@ -2,6 +2,7 @@ package com.senai.eventsmanager.controller;
 
 import com.senai.eventsmanager.dto.EventoCreateDTO;
 import com.senai.eventsmanager.service.EventoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.UUID;
 @RequestMapping("/api/v1/evento")
 //  http://localhost:8080/api/v1/evento/1
 public class EventoController {
-
+    @Autowired
     EventoService service;
 
     // pegar um evento pelo seu id
