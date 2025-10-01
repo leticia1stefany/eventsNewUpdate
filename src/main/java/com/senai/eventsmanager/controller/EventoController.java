@@ -1,10 +1,9 @@
 package com.senai.eventsmanager.controller;
 
-import com.senai.eventsmanager.dto.EventoCreateDTO;
+import com.senai.eventsmanager.dto.EventoDTO;
 import com.senai.eventsmanager.service.EventoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.UUID;
 
@@ -17,25 +16,25 @@ public class EventoController {
 
     // pegar um evento pelo seu id
     @GetMapping("/{id}")
-    public EventoCreateDTO findById(@PathVariable("id") UUID id){
+    public EventoDTO findById(@PathVariable("id") UUID id){
         return service.findById(id);
     }
     // pegar todos os eventos
     @GetMapping
-    public List<EventoCreateDTO> findAll(){
+    public List<EventoDTO> findAll(){
         return service.findAll();
     }
     // salvar um evento
     @PostMapping
-    public EventoCreateDTO save(
-            @RequestBody EventoCreateDTO eventoCreateDTO ){
+    public EventoDTO save(
+            @RequestBody EventoDTO eventoCreateDTO ){
         return service.save(eventoCreateDTO);
     }
     // atualizar um evento
     @PutMapping("/{id}")
-    public EventoCreateDTO update(
+    public EventoDTO update(
             @PathVariable("id")UUID id,
-            @RequestBody EventoCreateDTO eventoCreateDTO){
+            @RequestBody EventoDTO eventoCreateDTO){
         return service.update(id,eventoCreateDTO);
     }
     // deletar um evento pelo seu id
