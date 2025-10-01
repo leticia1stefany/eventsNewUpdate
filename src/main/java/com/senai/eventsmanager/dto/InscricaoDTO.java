@@ -12,7 +12,7 @@ public class InscricaoDTO {
     @NotNull(message = "O evento deverá ser informado")
     private Evento evento;
 
-    @NotNull(message = "O usuário deverá ser informado")
+    @NotNull(message = "O usuario deverá ser informado")
     private Usuario usuario;
 
 }
