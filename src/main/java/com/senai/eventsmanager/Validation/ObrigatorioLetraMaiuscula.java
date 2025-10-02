@@ -12,11 +12,10 @@ import jakarta.validation.Payload;
 @Constraint(validatedBy = TemLetraMaiusculaValidador.class)
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER})
-
-public @interface ObrigatorioNumeros {
-    String message() default "A senha deve conter números";
+public @interface ObrigatorioLetraMaiuscula {
+    String messade () default "A senha deve conter letra maiuscula";
 
     Class<?> [] groups() default {};
-    Class<? extends Payload>[] payload() default {};
-}
+    Class<? extends Payload >[] payload() default {};
 
+}

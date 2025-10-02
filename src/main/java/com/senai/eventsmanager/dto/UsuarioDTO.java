@@ -11,6 +11,7 @@ import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.senai.eventsmanager.Validation.ObrigatorioLetraMaiuscula;
 import com.senai.eventsmanager.Validation.ObrigatorioNumeros;
 import com.senai.eventsmanager.enums.UsuarioEnum;
 
@@ -29,6 +30,7 @@ public class UsuarioDTO {
     @NotBlank(message = "O usuário deverá inserir a sua senha ")
     @Size(max = 50, message = "Máximo de caracteres possiveis(50)")
     @ObrigatorioNumeros
+    @ObrigatorioLetraMaiuscula
     private String senha;
 
     @NotBlank(message = "O nome deverá ser informado.")
