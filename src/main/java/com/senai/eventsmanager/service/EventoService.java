@@ -6,6 +6,11 @@ import com.senai.eventsmanager.repository.EventoRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +39,21 @@ public class EventoService {
     public void deleteById(Long id){
         eventoRepository.deleteById(id);
     }
+    @GetMapping
+    public List<EventoDTO> calendario(String inicio, String dataFinal){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-MM-yyyy");
+        LocalDateTime inicioFormatado = LocalDate.parse(inicio, formatter).atStartOfDay();
+        LocalDateTime finalFormatado = LocalDate.parse(dataFinal, formatter).atStartOfDay();
+
+        List<Evento> eventos = eventoRepository.calendario(inicioFormatado, finalFormatado);
+        List<EventoDTO> eventoDTOs = new ArrayList<>();
+
+        for(Evento evento: eventos){
+            eventoDTOs.add(toDto(evento));
+        }
+                return eventoDTOs;
+    }
+
     public List<EventoDTO> findAll(){
         List<Evento> eventos = eventoRepository.findAll();
         List<EventoDTO> eventosDTO = new ArrayList<>();

@@ -15,6 +15,11 @@ public class EventoController {
     @Autowired
     EventoService service;
 
+    @GetMapping("calendario/{dataInicio}/{dataFinal}")
+    public List<EventoDTO> calendario(@PathVariable String dataInicio, @PathVariable String dataFinal){
+        return service.calendario(dataInicio, dataFinal);
+    }
+
     @GetMapping("/{id}")
     public EventoDTO findById(@PathVariable("id") Long id){
         return service.findById(id);
