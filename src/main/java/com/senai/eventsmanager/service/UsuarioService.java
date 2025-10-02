@@ -60,5 +60,9 @@ public class UsuarioService {
                 return usuario;
     }
 
+    public List<UsuarioDTO> usuario(Boolean maiorIdade) {
+        throw new UnsupportedOperationException("Unimplemented method 'usuario'");
+    }
+
 
 }

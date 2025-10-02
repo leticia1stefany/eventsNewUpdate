@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.*;
 public class UsuarioController {
     @Autowired
     private UsuarioService service;
+
+    @GetMapping("usuario/{maiorIdade}")
+    public List<UsuarioDTO> usuario(@PathVariable Boolean maiorIdade){
+        return service.usuario(maiorIdade);
+    }
     @GetMapping("/{id}")
     public UsuarioDTO findById(@PathVariable("id") Long id){
         return service.findById(id);
