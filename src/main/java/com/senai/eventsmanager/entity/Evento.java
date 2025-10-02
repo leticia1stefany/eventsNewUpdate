@@ -50,6 +50,7 @@ public class Evento {
     @CreatedDate
     @Column(nullable =  false, updatable = false)
     private LocalDateTime createdAt;
+
     @LastModifiedDate
     @Column(nullable = true)
     private LocalDateTime updatedAt;
