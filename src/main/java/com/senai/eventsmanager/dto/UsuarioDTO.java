@@ -1,4 +1,5 @@
 package com.senai.eventsmanager.dto;
+
 import jakarta.persistence.EntityListeners;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

@@ -1,6 +1,7 @@
 package com.senai.eventsmanager.controller;
 
 import com.senai.eventsmanager.dto.UsuarioDTO;
+import com.senai.eventsmanager.enums.UsuarioEnum;
 import com.senai.eventsmanager.service.UsuarioService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,10 +10,15 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/usuario")
 public class UsuarioController {
+    
     @Autowired
     private UsuarioService service;
 
-    @GetMapping("usuario/{maiorIdade}")
+    @GetMapping("/filtro/{tipo}")
+    public List<UsuarioDTO> filtro(@PathVariable("tipo") UsuarioEnum tipo){
+        return service.findByTipo(tipo);
+    }
+    @GetMapping("/usuario/{maiorIdade}")
     public List<UsuarioDTO> usuario(@PathVariable Boolean maiorIdade){
         return service.usuario(maiorIdade);
     }

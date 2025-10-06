@@ -1,4 +1,5 @@
 package com.senai.eventsmanager.dto;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.senai.eventsmanager.entity.Evento;
 import com.senai.eventsmanager.entity.Usuario;

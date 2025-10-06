@@ -1,4 +1,5 @@
 package com.senai.eventsmanager.dto;
+
 import java.time.LocalDateTime;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
