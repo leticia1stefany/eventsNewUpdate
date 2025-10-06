@@ -2,9 +2,7 @@ package com.senai.eventsmanager.controller;
 
 import com.senai.eventsmanager.dto.EventoDTO;
 import com.senai.eventsmanager.service.EventoService;
-
 import jakarta.validation.Valid;
-
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
