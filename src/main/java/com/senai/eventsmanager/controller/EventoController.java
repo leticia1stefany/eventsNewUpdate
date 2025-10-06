@@ -6,13 +6,19 @@ import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import com.senai.eventsmanager.enums.EventoEnum;
 
 @RestController
 @RequestMapping("/api/v1/evento")
-public class EventoController {
+public class EventoController{
     @Autowired
     EventoService service;
 
+    @GetMapping("/filtraEvento/{tipo}")
+    public List<EventoDTO> filtraEvento (@PathVariable("tipo") EventoEnum tipo){
+        return service.findByTipo(tipo);
+    }
     @GetMapping("calendario/{dataInicio}/{dataFinal}")
     public List<EventoDTO> calendario(@PathVariable String dataInicio, @PathVariable String dataFim){
         return service.calendario(dataInicio, dataFim);

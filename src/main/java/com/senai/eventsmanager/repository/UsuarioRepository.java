@@ -11,6 +11,6 @@ import com.senai.eventsmanager.enums.UsuarioEnum;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-    @Query("SELECT u FROM Usuario Usuario u WHERE u.tipo = :tipo")
+    @Query("SELECT u FROM Usuario u WHERE u.tipo = :tipo")
     List<Usuario> findByTipo(UsuarioEnum tipo);
 }
