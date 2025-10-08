@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class AuthController {
 
     @PostMapping("/login")
-    public void autenticar(@RequestBody AuthDTO dto){
+    public void login(@RequestBody AuthDTO dto){
     }
 }
     
